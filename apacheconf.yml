@@ -1,0 +1,6 @@
+---
+- hosts: apache
+  connection: local
+  remote_user: root
+  roles:
+     - roleconf 

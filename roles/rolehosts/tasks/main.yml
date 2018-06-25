@@ -1,0 +1,9 @@
+---
+- name: configuration d'apache 
+  blockinfile:
+    path: /opt/ansible/hosts2 
+    insertafter: EOF
+    content: |
+         [apache]
+         {{ servername }}
+    backup: no 

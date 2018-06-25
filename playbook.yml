@@ -1,0 +1,13 @@
+---
+- name: get hostnames of dynamically created VMs
+  hosts: apache 
+  connection: local
+  remote_user: root 
+
+  tasks:
+   - name: save hostname in variable, as this command is executed remotely, and we want the value on the ansible node
+     shell: "hostname"
+     register: hostname_output
+
+   - name: writing hostname_output in ansible node in file on ansible node
+     shell: "echo -e {{ hostname_output.stdout }} >> temp_hostname"
